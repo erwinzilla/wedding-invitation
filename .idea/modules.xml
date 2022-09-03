@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://D:/Website/Project/ezv2/.idea/ezv2.iml" filepath="D:/Website/Project/ezv2/.idea/ezv2.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/wedding-invitation.iml" filepath="$PROJECT_DIR$/.idea/wedding-invitation.iml" />
     </modules>
   </component>

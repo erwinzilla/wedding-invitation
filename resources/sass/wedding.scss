@@ -1,0 +1,507 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+// root
+
+// utilities
+$radius: 0.3rem;
+$border-radius: $radius;
+
+//color
+$primary:  #423D37;
+$secondary:  #D49E7A;
+$success:  #F9F0E7;
+$info:  #00cec9;
+$warning:  #fdcb6e;
+$danger:  #ff7675;
+$light:  #fbeac5;
+$dark:  #191d21;
+$default: #e3eaef;
+$white: #fff;
+$blue: #3498db;
+$purple: #9b59b6;
+$teal: #00bd9c;
+$orange: #e67e22;
+$yellow: #f1c40f;
+$green: #00cd6b;
+$red: #e74c3c;
+
+// font
+$font-family-base: 'Quicksand', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+// body
+$body-bg: #fff6f2;
+$body-color: #220a00;
+
+// forms
+$input-bg: #fff6f2;
+$input-border-color: #f7e3bc;
+$input-border-radius: $radius;
+$input-border-radius-lg: $radius;
+$input-border-radius-sm: $radius;
+$input-focus-border-color: $primary;
+$input-group-addon-bg: $input-bg;
+$input-group-addon-border-color: #e4e6fc;
+
+// buttons
+$btn-border-radius: $radius;
+$btn-border-radius-lg: $radius;
+$btn-border-radius-sm: $radius;
+$btn-border-width: 1px;
+
+// dropdown
+//$dropdown-font-size: .8rem;
+//$dropdown-border-radius: $radius;
+//$dropdown-divider-bg: #e4e6fc;
+//$dropdown-header-color: $primary;
+
+// card
+$card-border-radius: $radius;
+$card-border-width: 0;
+
+// navbar
+//$navbar-padding-y: .5rem;
+
+//$navbar-padding-x: 1rem;
+$nav-link-color: #6c757d;
+$nav-link-hover-color: $primary;
+
+// popover
+//$popover-border-radius: $radius;
+//$popover-border-width: 0;
+
+// tables
+//$table-cell-padding-y-sm: 1rem;
+//$table-cell-padding-x-sm: .6rem;
+//$table-cell-vertical-align: middle;
+
+// alert
+//$alert-border-radius: $radius;
+//$alert-margin-bottom: 0;
+
+// thumbnail
+$thumbnail-border-radius: $radius;
+
+// pagination
+//$pagination-border-radius: $radius;
+
+// badge
+//$badge-padding-y: .5em;
+//$badge-border-radius: .5rem;
+
+// breadcrumb
+//$breadcrumb-divider-color: rgba(255, 255, 255, 0.18);
+//$breadcrumb-active-color: rgba(255, 255, 255, 0.18);
+
+// modal
+$modal-content-border-radius: $radius;
+
+// carousel
+$carousel-indicator-width: 16px;
+$carousel-indicator-height: 16px;
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+
+//Generating bg and text color for all base Colors
+@each $color, $value in $colors {
+    .bg-#{$color}{
+        background-color: $value !important;
+}
+
+    .text-#{$color}{
+        color: $value !important;
+}
+}
+
+// 4. Include any optional Bootstrap CSS as needed
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/helpers";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/helpers";
+
+// 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "~bootstrap/scss/utilities/api";
+
+// 6. Add additional custom code here
+@import '~sweetalert2/src/sweetalert2.scss';
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+    :root {
+        --bs-primary-rgb: 66,61,55;
+        --bs-secondary-rgb: 212,158,122;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.font-playfair {
+    font-family: 'Playfair Display';
+}
+
+.font-parisienne {
+    font-family: 'Parisienne', cursive;
+}
+
+.img-thumbnail {
+    border-color: $light;
+}
+
+.img-avatar {
+    width: 18rem;
+    height: 18rem;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+}
+
+.bg-watercolor {
+    background-color: $body-bg;
+    color: $primary;
+    background-image: url(https://erwinzilla.com/v2/assets/images/bg-watercolor.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bg-cover {
+    background-color: #f4f4f4;
+    color: $primary;
+    background-image: url('/assets/images/bg-cover.png');
+    background-position: center 7rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bg-mujahidin {
+    background-color: $body-bg;
+    color: $primary;
+    background-image: url('/assets/images/bg-mujahidin.jpg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-arrum {
+    background: linear-gradient(rgba(66,61,55, .9), rgba(66,61,55, .8)), url('/assets/images/bg-arrum.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.bg-main {
+    background-color: #f4f4f4;
+    background-image: url('/assets/images/bg-main.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bg-pray {
+    background: linear-gradient(rgba(212,158,122, .9), rgba(212,158,122, .8)), url('/assets/images/bg-pray.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.bg-time {
+    background: linear-gradient(rgba(249, 240, 231, .9), rgba(249, 240, 231, .8)), url('/assets/images/bg-time.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-count {
+    background: linear-gradient(rgba(255, 246, 242, 0), rgba(255, 246, 242, 1)), url('/assets/images/bg-count.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.nav-logo {
+    width: 5rem;
+    position: absolute;
+    bottom: .4rem;
+    left: 1rem;
+}
+.navbar {
+    background-color: $body-bg;
+    border-color: $light!important;
+}
+
+.bg-thankyou {
+    background-image: url(https://erwinzilla.com/v2/assets/images/bg-thankyou.jpeg);
+    background-position: center -15em;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.filter-white {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(201deg) brightness(101%) contrast(102%);
+}
+
+.filter-black {
+    filter: grayscale(100%);
+}
+
+.filter-primary {
+    filter: invert(19%) sepia(11%) saturate(627%) hue-rotate(353deg) brightness(96%) contrast(82%);
+}
+
+.carousel-indicators [data-bs-target] {
+    border-radius: 50%;
+}
+
+.fab {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin-right: 1rem;
+    margin-bottom: 5rem;
+    z-index: 1;
+
+    &.play {
+        -webkit-animation: spin 4s linear infinite;
+        -moz-animation: spin 4s linear infinite;
+        animation: spin 4s linear infinite;
+}
+
+    button {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50% !important;
+}
+}
+
+.effect {
+    &.hide {
+        display: none;
+}
+
+    &.show {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        margin-right: 0;
+        margin-bottom: 3rem;
+        display: block;
+        z-index: 1;
+}
+}
+
+.equilizer {
+    height: 100px;
+    width: 100px;
+    transform: rotate(180deg);
+}
+
+.bar {
+    fill: $secondary;
+    width: 18px;
+    animation: equalize 4s 0s infinite;
+
+    &:nth-child(1) {
+        animation-delay: -1.9s;
+}
+
+    &:nth-child(2) {
+        animation-delay: -2s;
+}
+
+    &:nth-child(3) {
+        animation-delay: -2.3s;
+}
+
+    &:nth-child(4) {
+        animation-delay: -2.4s;
+}
+
+    &:nth-child(5) {
+        animation-delay: -2.1s;
+}
+}
+
+#home {
+    min-height: 100vh;
+    text-align: center;
+
+    .card {
+        height: 95vh;
+        border: 0;
+        background-color: transparent;
+        margin-top: 1rem;
+
+        .card-body {
+            h1 {
+                font-weight: 700;
+        }
+
+            img {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                top: 8em;
+        }
+
+            .home-cover {
+                position: relative;
+                font-size: 72px;
+                margin-top: 5rem;
+                font-weight: 700;
+
+                .and {
+                    top: -4rem;
+                    position: relative;
+                    font-size: 55px;
+                    font-weight: 800;
+            }
+
+                .float-end {
+                    position: relative;
+                    top: -6.5rem;
+                    height: 10px;
+            }
+        }
+
+            .home-footer {
+                margin-top: 3rem;
+
+                h5 {
+                    font-weight: 700;
+                    margin-bottom: 3rem;
+            }
+        }
+    }
+}
+}
+
+@keyframes equalize {
+0% {
+height: 60px;
+}
+4% {
+height: 50px;
+}
+8% {
+height: 40px;
+}
+12% {
+height: 30px;
+}
+16% {
+height: 20px;
+}
+20% {
+height: 30px;
+}
+24% {
+height: 40px;
+}
+28% {
+height: 10px;
+}
+32% {
+height: 40px;
+}
+36% {
+height: 60px;
+}
+40% {
+height: 20px;
+}
+44% {
+height: 40px;
+}
+48% {
+height: 70px;
+}
+52% {
+height: 30px;
+}
+56% {
+height: 10px;
+}
+60% {
+height: 30px;
+}
+64% {
+height: 50px;
+}
+68% {
+height: 60px;
+}
+72% {
+height: 70px;
+}
+76% {
+height: 80px;
+}
+80% {
+height: 70px;
+}
+84% {
+height: 60px;
+}
+88% {
+height: 50px;
+}
+92% {
+height: 60px;
+}
+96% {
+height: 70px;
+}
+100% {
+height: 80px;
+}
+}
+
+@-moz-keyframes spin {
+100% { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+100% {
+-webkit-transform: rotate(360deg);
+transform:rotate(360deg);
+}
+}

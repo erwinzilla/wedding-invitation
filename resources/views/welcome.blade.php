@@ -1,132 +1,893 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Laravel</title>
+    <title>Faisal & Erna Invitation</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{{ url('assets/images/favicon.png') }}">
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
-        </style>
+    <!-- CSS only -->
+{{--        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">--}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url('assets/css/wedding.css?v=4') }}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#main-nav" data-bs-offset="1" tabindex="1">
+<div class="container-fluid" style="overflow-x: hidden">
+    <nav id="main-nav" class="navbar fixed-bottom navbar-light border-top">
+        <div class="container-fluid">
+            <div class="w-100">
+                <ul class="nav nav-pills nav-fill text-muted">
+                    <li class="nav-item">
+                        <a class="nav-link me-5" href="#">
+                            <img src="{{ url('assets/images/logo.png') }}" class="d-inline-block align-text-top filter-primary nav-logo" alt="logo erwin fahny" width="32">
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#couple">
+                            <i class="bi bi-people h2"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#date">
+                            <i class="bi bi-calendar-date h2"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#place">
+                            <i class="bi bi-geo h2"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#greeting">
+                            <i class="bi bi-envelope-open h2"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
-                </div>
-
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
+    <div class="row">
+        <div id="home" class="col-12 bg-main">
+            <div class="card bg-white bg-opacity-25 border-white border">
+                <div class="card-body">
+                    <h1 class="font-playfair">WE ARE GETTING MARRIED</h1>
+{{--                    <img src="{{ url('assets/images/flower.png') }}" alt="bunga" class="opacity-50">--}}
+                    <div class="font-parisienne home-cover p-4">
+                        <span class="float-start">Faisal</span><br>
+                        <span class="text-secondary and">&</span><br>
+                        <span class="float-end">Erna</span>
                     </div>
-                </div>
-
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
-                            </a>
-
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
-
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                    <div class="home-footer">
+                        <h5>09-10-2022</h5>
+                        <a href="https://calendar.google.com/event?action=TEMPLATE&tmeid=NW1qOGVmZzFsazZocHY1cTJmcTRrZmZlNGogYW5ucndpbnpAbQ&tmsrc=annrwinz%40gmail.com" target="_blank" class="btn btn-lg btn-primary w-100 fw-bold">SAVE THE DATE</a>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+
+        {{--        Div Ar-rum--}}
+        <div class="col-12 text-white text-center p-4 py-5 bg-arrum bg-primary">
+            <div class="content" data-aos="zoom-in" data-aos-duration="2000">
+                <img src="{{ url('assets/images/divider-up.png') }}" class="filter-white w-75 mb-3 opacity-50" alt="divider">
+                <p class=""><strong>Ar-Rum : 21</strong></p>
+                <p class="">“Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.”</p>
+                <img src="{{ url('assets/images/divider-down.png') }}" class="filter-white w-75 mt-3 opacity-50" alt="divider">
+            </div>
+        </div>
+
+        {{--        Couple--}}
+        <div id="couple" class="col-12 text-primary text-center p-4 py-5">
+            <div class="mb-5" data-aos="fade-up" data-aos-duration="2000">
+                <h1 class="fw-bold font-playfair">The Groom</h1>
+                <img src="{{ url('assets/images/divider.png') }}" class="w-50 my-3" alt="divider">
+                <img src="{{ url('assets/images/groom.jpg') }}" class="rounded-circle img-thumbnail img-avatar mb-4" alt="groom">
+                <h1 class="font-parisienne">Faisal Abdul Rozzak</h1>
+                <p>Putra ke-empat dari<br><b>Bpk. Sukeri &<br>Ibu Paimah</b></p>
+                <div class="mt-3">
+{{--                    <a href="https://www.facebook.com/annrwinz" target="_blank" class="btn text-primary p-2"><i class="bi bi-facebook h1"></i></a>--}}
+{{--                    <a href="https://twitter.com/erwinzilla_" target="_blank" class="btn text-primary p-2"><i class="bi bi-twitter h1"></i></a>--}}
+                    <a href="https://www.instagram.com/faisal_abdul_r/" target="_blank" class="btn text-primary p-2"><i class="bi bi-instagram h1"></i></a>
+                </div>
+            </div>
+            <div data-aos="flip-left">
+                <h1><i class="bi bi-heart"></i></h1>
+            </div>
+            <div class="mb-3 mt-5" data-aos="fade-up" data-aos-duration="2000">
+                <h1 class="fw-bold font-playfair">The Bridge</h1>
+                <img src="{{ url('assets/images/divider.png') }}" class="w-50 my-3" alt="divider">
+                <img src="{{ url('assets/images/bridge.jpg') }}" class="rounded-circle img-thumbnail img-avatar mb-4" alt="bridge">
+                <h1 class="font-parisienne">Erna Ayu Kurnia</h1>
+                <p>Putri ke-tiga dari<br><b>Bpk. Sutisna (Alm) &<br>Ibu Dedeh Kurniasih</b></p>
+                <div class="mt-3">
+{{--                    <a href="https://www.facebook.com/fahny.arfah" target="_blank" class="btn text-primary p-2"><i class="bi bi-facebook h1"></i></a>--}}
+                    <a href="https://www.instagram.com/erna.a.kurnia/" target="_blank" class="btn text-primary p-2"><i class="bi bi-instagram h1"></i></a>
+                </div>
+            </div>
+        </div>
+
+        {{--        Do'a--}}
+        <div class="col-12 bg-pray text-white text-center p-4 py-5">
+            <div data-aos="zoom-out" data-aos-duration="2000">
+                <img src="{{ url('assets/images/divider-up.png') }}" class="filter-white w-75 mb-3 opacity-50" alt="divider">
+                <h1 class="mb-3"> بِسْمِ اللّهِ الرَّحْمَنِ الرَّحِيْ </h1>
+                <span>Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah, Perkenankan dan ridhoilah putra-putri kami dalam ikatan suci pernikahan:</span>
+                <br>
+                <img src="{{ url('assets/images/divider-down.png') }}" class="filter-white w-75 mt-3 opacity-50" alt="divider">
+            </div>
+        </div>
+
+        {{--        Date--}}
+        <div id="date" class="col-12 bg-secondary text-primary text-center p-4 py-5 bg-opacity-25 bg-time">
+            <div data-aos="fade-right" data-aos-duration="2000">
+                <h1 class="font-playfair">Akad</h1>
+                <img src="{{ url('assets/images/divider.png') }}" class="w-50 my-3" alt="divider">
+                <div class="row align-items-center">
+                    <div class="col border border-primary py-1 border-start-0 border-end-0 border-2">
+                        <h5 class="mb-0">Minggu</h5>
+                    </div>
+                    <div class="col">
+                        <span>Oktober</span>
+                        <h1 class="fw-bold mb-0" style="font-size: 3rem;">09</h1>
+                        <h5 class="mb-0">2022</h5>
+                    </div>
+                    <div class="col border border-primary py-1 border-start-0 border-end-0 border-2">
+                        <h5 class="mb-0">08.00 WIB</h5>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4">
+            <div class="mt-4" data-aos="fade-left" data-aos-duration="2000">
+                <h1 class="font-playfair">Resepsi</h1>
+                <img src="{{ url('assets/images/divider.png') }}" class="w-50 my-3" alt="divider">
+                <div class="row align-items-center">
+                    <div class="col border border-primary py-1 border-start-0 border-end-0 border-2 d-flex" style="height: 5rem">
+                        <h5 class="align-self-center mx-auto">Minggu</h5>
+                    </div>
+                    <div class="col">
+                        <span>Oktober</span>
+                        <h1 class="fw-bold mb-0" style="font-size: 3rem;">09</h1>
+                        <h5 class="mb-0">2022</h5>
+                    </div>
+                    <div class="col border border-primary py-1 border-start-0 border-end-0 border-2">
+                        <h5 class="mb-0" >
+                            11.00 WIB
+                            <br><b class="text-secondary small">s/d</b>
+                            <br>15.00 WIB
+                        </h5>
+                    </div>
+                </div>
+            </div>
+{{--            <div class="mt-4">--}}
+{{--                <b>Resepsi terdiri dari 2 Sesi, penentuan sesi dapat dilihat pada surat undangan</b>--}}
+{{--            </div>--}}
+            <div class="mt-4">
+                <a href="https://calendar.google.com/event?action=TEMPLATE&tmeid=NW1qOGVmZzFsazZocHY1cTJmcTRrZmZlNGogYW5ucndpbnpAbQ&tmsrc=annrwinz%40gmail.com" target="_blank" class="btn btn-secondary w-100 ">SAVE THE DATE</a>
+            </div>
+        </div>
+
+        {{--        Countdown--}}
+        <div class="col-12 text-center p-4 py-5 bg-count">
+            <div data-aos="flip-up" data-aos-duration="2000">
+                <h1 class="font-playfair mb-3">Menuju Hari Pernikahan</h1>
+                <img src="{{ url('assets/images/divider.png') }}" class="w-50 my-3" alt="divider">
+                <div id="time" class="bg-white rounded px-3 py-2 bg-opacity-50 border-white border">
+                    <table class="table table-borderless my-4">
+                        <tr class="h1">
+                            <td id="day">00</td>
+                            <td>:</td>
+                            <td id="hour">00</td>
+                            <td>:</td>
+                            <td id="min">00</td>
+                            <td>:</td>
+                            <td id="sec">00</td>
+                        </tr>
+                        <tr class="h6 text-muted">
+                            <td>DAYS</td>
+                            <td></td>
+                            <td>HOUR</td>
+                            <td></td>
+                            <td>MIN</td>
+                            <td></td>
+                            <td>SEC</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        {{--        Place--}}
+{{--        <div id="place" class="col-12 text-center p-4 py-5 bg-mujahidin" style="height:400px;"></div>--}}
+
+        <div id="place" class="col-12 text-center p-4 py-5 bg-mujahidin">
+            <div class="card bg-primary bg-opacity-50" data-aos="flip-down" data-aos-duration="2000">
+                <div class="card-body">
+                    <div class="text-white">
+                        <h1 class="fw-bold font-playfair mb-4">Location</h1>
+                        <div class="mb-3">
+                            <i class="bi bi-geo-fill text-danger fs-2"></i>
+                        </div>
+                        <address>Jl. Bantar Gedang Gg. Alpuket RT/RW 05/09, Desa Mekarsari, Kec. Ngamprah, Kab. Bandung Barat, Jawa Barat 40552</address>
+                        <a href="https://goo.gl/maps/UJjjRnfQ21cxYvMh9" target="_blank" class="btn btn-primary w-100 mt-2"><i class="bi bi-geo-alt-fill"></i> Menuju Lokasi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{--        Guestbook--}}
+        <div class="col-12 bg-primary text-start p-4 bg-opacity-25">
+            <img src="https://erwinzilla.com/v2/assets/images/divider-up.png" class="filter-primary w-75 mb-3 d-flex mx-auto opacity-50" alt="divider">
+            <div class="text-primary" data-aos="zoom-in" data-aos-duration="2000">
+                <h1 class="fw-bold font-playfair mb-4 text-center">GUEST BOOK</h1>
+                <p class="text-center">Kami tidak sabar menunggu hari pernikahan kami bersama kalian, mohon konfirmasi kehadiran kalian.<br>Terima Kasih.</p>
+                <hr>
+                <div id="attendance-content">
+                    @if(!$data['attendance'])
+                        {{--                        <form id="form-attendance" action="{{ url('wedding/manage') }}" method="post">--}}
+                        {{--                            @csrf--}}
+                        <div class="mb-2">
+                            <label class="form-label">Nama:</label>
+                            <input type="text" name="name" class="form-control" value="{{ $name }}" placeholder="Nama">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Alamat:</label>
+                            <textarea name="address" class="form-control" placeholder="Alamat"></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Apakah Hadir?</label>
+                            <div class="row">
+                                <div class="col">
+                                    <select name="coming" class="form-select">
+                                        <option value="1">Iya</option>
+                                        <option value="2">Mungkin</option>
+                                        <option value="0">Tidak</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <input name="qty" type="number" class="form-control" placeholder="Berapa orang?" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <button id="submit-attendance" type="submit" class="btn btn-primary w-100">Simpan</button>
+                        </div>
+                        {{--                        </form>--}}
+                    @else
+                        <div class="text-center">
+                            <span>Terima kasih telah mengkonfirmasi kehadiran anda.</span>
+                            <br><i class="bi bi-heart"></i>
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <img src="https://erwinzilla.com/v2/assets/images/divider-down.png" class="filter-primary w-75 mt-3 d-flex mx-auto opacity-50" alt="divider">
+        </div>
+        <div class="col-12 bg-primary text-center text-white p-4 bg-opacity-50">
+            <h1 class="fw-bold font-playfair mb-0">OUR GALLERY</h1>
+            <img src="{{ url('assets/images/divider.png') }}" class="w-50 my-4" alt="divider">
+            <div id="carousel-gallery-portrait" class="carousel slide mb-3" data-bs-ride="carousel" data-aos="zoom-out-right" data-aos-duration="2000">
+                <div class="carousel-inner">
+                    @for($i = 1; $i <= 12; $i++) {{-- 12 gambar yang tersedia --}}
+                        <div class="carousel-item {{ $i == 1 ? 'active' : '' }}">
+                            <img src="{{ url('assets/images/gallery/portrait-black-'.$i.'.jpeg') }}" class="d-block w-100" alt="gallery image">
+                        </div>
+                    @endfor
+                    @for($i = 1; $i <= 3; $i++) {{-- 3 gambar yang tersedia --}}
+                        <div class="carousel-item">
+                            <img src="{{ url('assets/images/gallery/portrait-white-'.$i.'.jpeg') }}" class="d-block w-100" alt="gallery image">
+                        </div>
+                    @endfor
+                </div>
+            </div>
+            <div id="carousel-gallery-landscape" class="carousel slide carousel-fade" data-bs-ride="carousel" data-aos="zoom-out-left" data-aos-duration="2000">
+                <div class="carousel-inner">
+                    @for($i = 1; $i <= 8; $i++) {{-- 8 gambar yang tersedia --}}
+                        <div class="carousel-item {{ $i == 1 ? 'active' : '' }}">
+                            <img src="{{ url('assets/images/gallery/landscape-black-'.$i.'.jpeg') }}" class="d-block w-100" alt="gallery image">
+                        </div>
+                    @endfor
+                </div>
+            </div>
+        </div>
+        <div id="greeting" class="col-12 bg-primary text-start p-4 bg-opacity-75">
+            <img src="https://erwinzilla.com/v2/assets/images/divider-up.png" class="filter-white w-75 mb-3 d-flex mx-auto opacity-50" alt="divider">
+            <div class="text-white" data-aos="zoom-out" data-aos-duration="2000">
+                <h1 class="fw-bold font-playfair mb-4 text-center">WEDDING WISHES</h1>
+                <p class="text-center">Tulis do'a untuk kami ...</p>
+                <hr>
+                <div id="wish-content">
+                    <div class="mb-2">
+                        <label class="form-label">Nama:</label>
+                        <input type="text" name="name" class="form-control" value="{{ $name }}" placeholder="Nama">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Pesan / Doa:</label>
+                        <textarea name="wish" class="form-control" placeholder="Doa.."></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <button id="wish-submit" type="submit" class="btn btn-primary w-100 mb-2">Simpan</button>
+                        <div id="wish-label">
+                            @if($data['wish'])
+                                <small class="mt-2 text-light"><b>Ctt:</b> Do'a / Pesan kami sunting terlebih dahulu, jika ada kesalahan penulisan silahkan isi do'a / pesan kembali.</small>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="overflow-auto mb-4" style="height: 50vh;">
+                    @if($data2->count() > 0)
+                        @foreach($data2 as $row)
+                            <ul class="list-group list-group-flush text-white">
+                                <li class="list-group-item text-white mb-2 pb-3 border-muted bg-transparent">
+                                    <h5 class="font-playfair text-light">{{ $row->name }}</h5>
+                                    <span>{{ $row->wish }}</span>
+                                </li>
+                            </ul>
+                        @endforeach
+                    @else
+                        <div class="d-flex text-center h-100">
+                            <span class="my-auto mx-auto">
+                                Do'a / Pesan akan ditampilkan disini..
+                                <br>Stay tuned ya..
+                                <br><i class="bi bi-heart"></i>
+                            </span>
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <img src="https://erwinzilla.com/v2/assets/images/divider-down.png" class="filter-white w-75 mt-3 d-flex mx-auto opacity-50" alt="divider">
+        </div>
+
+        {{-- Partnership--}}
+        <div class="col-12 bg-white text-center p-4 bg-opacity-50">
+            <div data-aos="flip-right" data-aos-duration="2000">
+                <h1 class="fw-bold font-playfair mb-4">PARTNERSHIP</h1>
+                <div class="swiper mb-2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="{{ url('assets/images/partnership/mahaz.png') }}" class="d-block w-100 filter-black" alt="mahaz">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ url('assets/images/partnership/afternoon.png') }}" class="d-block w-100" alt="afternoon">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ url('assets/images/partnership/undangan-kita.png') }}" class="d-block w-100 filter-black" alt="undangan kita">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ url('assets/images/partnership/shella-catering.png') }}" class="d-block w-100 filter-black" alt="afternoon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Wedding Gift--}}
+        <div class="col-12 bg-primary text-center text-white p-4 bg-opacity-75">
+            <img src="{{ url('/assets/images/divider-up.png') }}" class="filter-white w-75 mb-3 d-flex mx-auto opacity-50" alt="divider">
+            <div data-aos="flip-right" data-aos-duration="2000">
+                <h1 class="fw-bold font-playfair mb-4">WEDDING GIFT</h1>
+                <p>Bagi yang berkenan memberikan kado pernikahan atau tanda kasih, kami juga menyediakan amplop digital pada link dibawah ini</p>
+                <div class="row mt-2">
+                    <div class="col">
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#bank">Amplop Digital</button>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#gift">Kirim Kado</button>
+                    </div>
+                </div>
+            </div>
+            <img src="{{ url('/assets/images/divider-down.png') }}" class="filter-white w-75 mt-3 d-flex mx-auto opacity-50" alt="divider">
+        </div>
+
+        <div class="col-12 text-center p-4 py-5 bg-thankyou">
+            <div class="card bg-primary bg-opacity-50" data-aos="zoom-in" data-aos-duration="2000">
+                <div class="card-body">
+                    <div class="text-white">
+                        <h1 class="font-parisienne my-4" style="font-size: 2.5rem;">Thank You</h1>
+                        <p>For Being With Use</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="effect hide">
+        <svg xmlns="http://www.w3.org/2000/svg" class="equilizer" viewBox="0 0 128 128">
+            <g>
+                <title>Audio Equilizer</title>
+                <rect class="bar" transform="translate(0,0)" y="15"></rect>
+                <rect class="bar" transform="translate(25,0)" y="15"></rect>
+                <rect class="bar" transform="translate(50,0)" y="15"></rect>
+                <rect class="bar" transform="translate(75,0)" y="15"></rect>
+                <rect class="bar" transform="translate(100,0)" y="15"></rect>
+            </g>
+        </svg>
+    </div>
+
+    <div class="fab pause">
+        <button id="music-control" class="btn btn-primary rounded">
+            <i class="bi bi-music-note-beamed"></i>
+        </button>
+    </div>
+
+    <!-- Bank modal -->
+    <div class="modal fade" id="bank" tabindex="-1" aria-labelledby="bank" aria-hidden="true" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-primary text-center">
+                    <div class="title mb-3">
+                        <h1 class="font-parisienne">Amplop Digital</h1>
+                        <span>Silahkan pilih nomor rekening yang ada di bawah ini</span>
+                    </div>
+                    <hr>
+                    <div>
+                        <img src="{{ url('/assets/images/bank/bca.png') }}" alt="bca" width="125"><br>
+                        <b>Bank BCA</b><br>
+                        <span>a.n. Faisal Abdul Rozzak</span><br>
+                        <h5 class="mt-2 mb-0 fw-bold">2780311188</h5>
+                        <button class="btn btn-primary mt-2">Salin Rekening</button>
+                    </div>
+                    <hr>
+                    <small>Klik diluar kotak untuk menutup kotak</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gift modal -->
+    <div class="modal fade" id="gift" tabindex="-1" aria-labelledby="gift" aria-hidden="true" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-primary text-center">
+                    <div class="title mb-3">
+                        <h1 class="font-parisienne">Kirim Kado</h1>
+                        <span>Silahkan kirim kado ke alamat yang ada di bawah ini</span>
+                    </div>
+                    <hr>
+                    <div class="mb-3">
+                        <i class="bi bi-geo-fill text-danger fs-2"></i>
+                    </div>
+                    <address>Jl. Bantar Gedang Gg. Alpuket RT/RW 05/09, Desa Mekarsari, Kec. Ngamprah, Kab. Bandung Barat, Jawa Barat 40552</address>
+                    <a href="https://goo.gl/maps/UJjjRnfQ21cxYvMh9" target="_blank" class="btn btn-primary w-100 mt-2"><i class="bi bi-geo-alt-fill"></i> Menuju Lokasi</a>
+                    <hr>
+                    <small>Klik diluar kotak untuk menutup kotak</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Protocol modal -->
+    <div class="modal fade" id="protocol" tabindex="-1" aria-labelledby="protocol" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-primary" style="--bs-bg-opacity: 0.9;">
+                <div class="modal-body text-white">
+                    <div class="title text-center mb-3">
+                        <h1 class="font-parisienne">Protokol Kesehatan</h1>
+                        <span>Sebelum memasuki ruang acara jangan lupa mengikuti protokol kesehatan</span>
+                    </div>
+                    <div id="carousel-protocol" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false" style="height:45vh">
+                        <div class="carousel-indicators mb-0">
+                            <button type="button" data-bs-target="#carousel-protocol" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carousel-protocol" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carousel-protocol" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carousel-protocol" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        </div>
+                        <div class="carousel-inner mb-3">
+                            <div class="carousel-item active">
+                                <div class="d-flex flex-column align-items-center">
+                                    <img src="{{ url('assets/images/masker.png') }}" class="w-50 mb-3 mt-5 filter-white" alt="logo masker">
+                                    <div class="text-center mt-5">
+                                        <h1 class="font-playfair">Menggunakan Masker</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex flex-column align-items-center">
+                                    <img src="{{ url('assets/images/washing-hands.png') }}" class="w-50 mb-3 mt-5 filter-white" alt="mecuci tangan">
+                                    <div class="text-center mt-5">
+                                        <h1 class="font-playfair">Mencuci Tangan</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex flex-column align-items-center">
+                                    <img src="{{ url('assets/images/temperature.png') }}" class="w-50 mb-3 mt-5 filter-white" alt="temperatur suhu">
+                                    <div class="text-center mt-5">
+                                        <h1 class="font-playfair">Cek Suhu</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex flex-column align-items-center">
+                                    <img src="{{ url('assets/images/social-distancing.png') }}" class="w-50 mb-3 mt-5 filter-white" alt="sosial distancing">
+                                    <div class="text-center mt-5">
+                                        <h1 class="font-playfair">Jaga Jarak</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <div id="button" class="row w-100">
+                        <div class="col">
+                            <a id="prev" class="btn btn-secondary w-100" data-bs-target="#carousel-protocol" data-bs-slide="prev">Prev</a>
+                        </div>
+                        <div class="col">
+                            <a id="next" class="btn btn-light w-100" data-bs-target="#carousel-protocol" data-bs-slide="next">Next</a>
+                        </div>
+                    </div>
+                    <a id="open" class="btn btn-success w-100" hidden>Ya, Saya akan mengikuti prokes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{--    Wedding Invitation--}}
+    <div class="modal fade" id="invitation" tabindex="-1" aria-labelledby="invitation" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content bg-cover">
+                <div class="modal-body text-center">
+                    <div class="mt-5">
+                        <h1 class="fw-bold font-parisienne" style="font-size: 31px">You're Invited!</h1>
+                        <p style="font-size: 17px">The Wedding Celebration of</p>
+                        <img src="{{ url('assets/images/flower.png') }}" class="opacity-50" alt="bunga" style="position: absolute;width: 100%;left: 0;top: 8em;">
+                        <img src="{{ url('assets/images/logo.png') }}" class="w-75 mt-5 filter-primary" alt="logo erwin fahny">
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <h5 class="mb-2 ms-auto me-auto font-playfair">Dear, <b>{{ ucwords($name) }}</b></h5>
+                    <a id="open-protocol" class="btn btn-outline-primary w-100 fw-bold" data-bs-target="#protocol" data-bs-toggle="modal">Open Invitation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="bg-white px-3" style="padding-bottom: 5rem; padding-top: 1rem;">
+        All resource icon, frame and background made by <a href="https://www.freepik.com" target="_blank">Freepik</a>
+    </div>
+</footer>
+
+<audio id="music" loop>
+    <source src="{{ url('assets/music/marry.mp3') }}" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    const base_url = 'https://erwinzilla.com/v2/';
+
+    // scroll
+    AOS.init();
+
+    // setting alert
+    let alert = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-primary btn-lg text-white',
+            cancelButton: 'btn btn-default btn-lg',
+            popup: 'card',
+            title: 'text-default'
+        },
+        buttonsStyling: false
+    });
+
+    let Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        customClass: {
+            popup: 'card',
+            title: 'text-default'
+        },
+        buttonsStyling: false,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    });
+
+    // swipper
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false
+        },
+        slidesPerView: 2,
+    });
+
+
+    var modal_invitation = new bootstrap.Modal(document.getElementById('invitation'), {
+        focus: true,
+    });
+    var modal_protocol = new bootstrap.Modal(document.getElementById('protocol'), {
+        focus: true,
+    });
+    var myCarousel = document.getElementById('carousel-protocol');
+    var carousel = new bootstrap.Carousel(myCarousel, {
+        interval: false,
+        wrap: false
+    });
+    let music = document.getElementById('music');
+    let btn_music = document.getElementById('music-control');
+
+    modal_invitation.show();
+    myCarousel.addEventListener('slid.bs.carousel', function () {
+        if (carousel._activeElement === carousel._items[carousel._items.length - 1]) {
+            let btn = document.getElementById('button');
+            let open = document.getElementById('open');
+
+            if (btn) {
+                btn.setAttribute('hidden', '');
+                open.removeAttribute('hidden')
+            }
+        }
+    });
+
+    document.addEventListener('click', function (e) {
+        let open = document.getElementById('open');
+        if (e.target === open) {
+            modal_protocol.hide();
+            music.play();
+
+            let fab = btn_music.closest('.fab');
+            if (fab.classList.contains('pause')) {
+                fab.classList.remove('pause');
+                fab.classList.add('play');
+
+                let equalizer = document.querySelector('.effect');
+                if (equalizer.classList.contains('hide')) {
+                    equalizer.classList.remove('hide');
+                    equalizer.classList.add('show')
+                }
+            }
+        }
+    });
+
+    btn_music.addEventListener('click', function () {
+        let fab = btn_music.closest('.fab');
+
+        if (fab.classList.contains('play')) {
+            music.pause();
+            console.log('stop');
+
+            fab.classList.remove('play');
+            fab.classList.add('pause');
+
+            let equalizer = document.querySelector('.effect');
+            if (equalizer.classList.contains('show')) {
+                equalizer.classList.remove('show');
+                equalizer.classList.add('hide')
+            }
+        } else {
+            music.play();
+            console.log('play');
+
+            if (fab.classList.contains('pause')) {
+                fab.classList.remove('pause');
+                fab.classList.add('play');
+
+                let equalizer = document.querySelector('.effect');
+                if (equalizer.classList.contains('hide')) {
+                    equalizer.classList.remove('hide');
+                    equalizer.classList.add('show')
+                }
+            }
+        }
+    });
+
+    // Set the date we're counting down to
+    var countDownDate = new Date("Oct 9, 2022 09:00:00").getTime();
+
+    // form action
+    let btn_attend = document.getElementById('submit-attendance');
+    if (btn_attend){
+
+        btn_attend.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            let attend = document.getElementById('attendance-content');
+            let name = attend.querySelector('input[name="name"]').value;
+            let addr = attend.querySelector('textarea[name="address"]').value;
+            let coming = attend.querySelector('select[name="coming"]').value;
+            let qty = attend.querySelector('input[name="qty"]').value;
+
+            let url = base_url + 'wedding/manage';
+            send_http(url, function (data) {
+                if (data === 'success') {
+                    //show alert
+                    alert.fire({
+                        title: 'Success',
+                        text: 'Sukses memasukan data, terimakasih telah mengkonfirmasi kehadiran',
+                        icon: 'success',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        showConfirmButton: false
+                    });
+
+                    attend.innerHTML = '<div class="text-center">' +
+                        '<span>Terima kasih telah mengkonfirmasi kehadiran anda.</span>' +
+                        '<br><i class="bi bi-heart"></i>' +
+                        '</div>'
+                } else {
+                    //show alert
+                    alert.fire({
+                        title: 'Error',
+                        text: 'Gagal memasukan data, silahkan cek kembali data yang diinput',
+                        icon: 'error',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        showConfirmButton: false
+                    })
+                }
+            }, 'post', 'name='+name+'&address='+addr+'&coming='+coming+'&qty='+qty, true)
+        });
+    }
+
+    // form action
+    let btn_wish = document.getElementById('wish-submit');
+    if (btn_wish){
+
+        btn_wish.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            let wish = document.getElementById('wish-content');
+            let name = wish.querySelector('input[name="name"]').value;
+            let wishbox = wish.querySelector('textarea[name="wish"]').value;
+
+            let url = base_url + 'wedding/manage/wish';
+            send_http(url, function (data) {
+                if (data === 'success') {
+                    //show alert
+                    alert.fire({
+                        title: 'Success',
+                        text: 'Sukses memasukan data, terimakasih telah memberikan doa dan pesan untuk kami',
+                        icon: 'success',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        showConfirmButton: false
+                    });
+
+                    wish.querySelector('textarea[name="wish"]').value = '';
+
+                    let wish_label = document.getElementById('wish-label');
+                    wish_label.innerHTML = '<small class="mt-2 text-light"><b>Ctt:</b> Do\'a / Pesan kami sunting terlebih dahulu, jika ada kesalahan penulisan silahkan isi do\'a / pesan kembali.</small>';
+                } else {
+                    //show alert
+                    alert.fire({
+                        title: 'Error',
+                        text: 'Gagal memasukan data, silahkan cek kembali data yang diinput',
+                        icon: 'error',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        showConfirmButton: false
+                    })
+                }
+            }, 'post', 'name='+name+'&wish='+wishbox, true)
+        });
+    }
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        document.getElementById("day").innerHTML = days;
+        document.getElementById("hour").innerHTML = hours;
+        document.getElementById("min").innerHTML = minutes;
+        document.getElementById("sec").innerHTML = seconds;
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("time").innerHTML = "<h1 class='fw-bold'>EXPIRED</h1>";
+        }
+    }, 1000);
+
+    function send_http(url, callback, method = 'get', param = null, loading = true) {
+        console.log(url);
+        console.log(param);
+
+        let http = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP'));
+
+        http.onreadystatechange = function () {
+            if (http.readyState === 4 && http.status === 200) {
+                if (loading) {
+                    alert.close();
+                }
+                if (typeof callback === 'function') callback(http.responseText);
+            }
+        };
+
+        if (loading) {
+            alert.fire({
+                title: 'Loading ...',
+                timer: 120000,
+                didOpen: () => {
+                    alert.showLoading()
+                }
+            }).then((result) => {
+                if (result.dismiss === alert.DismissReason.timer) {
+                    alert.fire(
+                        'Request Time Out',
+                        'Cannot get data from database, please refresh page or try again',
+                        'error'
+                    )
+                }
+            });
+        }
+
+        if (method === 'get') {
+            http.open(method, url);
+            http.send()
+        }
+
+        if (method === 'post' || method === 'put') {
+            http.open(method, url, true);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.setRequestHeader("X-CSRF-TOKEN", document.head.querySelector("[name=csrf-token]").content);
+            http.send(param)
+        }
+    }
+
+    // function myMap() {
+    //     // var mapProp= {
+    //     //     center:new google.maps.LatLng(-6.9305046, 107.6192866),
+    //     //     zoom: 17,
+    //     //     // mapId: '7ebcc73f6f6f1d79'
+    //     // };
+    //     // var map = new google.maps.Map(document.getElementById("place"),mapProp);
+    //
+    //     // var icon = {
+    //     //     url: base_url + 'assets/images/favicon.png', // url
+    //     //     scaledSize: new google.maps.Size(100, 100), // scaled size
+    //     //     origin: new google.maps.Point(0, 0), // origin
+    //     //     anchor: new google.maps.Point(50, 0) // anchor
+    //     // };
+    //     //
+    //     //
+    //     // var marker = new google.maps.Marker({
+    //     //     position: { lat: -6.9305046, lng: 107.6192866},
+    //     //     animation: google.maps.Animation.BOUNCE,
+    //     //     icon: icon
+    //     // });
+    //     //
+    //     // marker.setMap(map);
+    // }
+</script>
+
+{{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_dJfw86MRQT0y02V5-NNQBvBQNdQH7LE&callback=myMap"></script>--}}
+
+</body>
 </html>
