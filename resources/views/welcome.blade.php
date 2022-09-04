@@ -75,7 +75,7 @@
                     </div>
                     <div class="home-footer">
                         <h5>09-10-2022</h5>
-                        <a href="https://calendar.google.com/event?action=TEMPLATE&tmeid=NW1qOGVmZzFsazZocHY1cTJmcTRrZmZlNGogYW5ucndpbnpAbQ&tmsrc=annrwinz%40gmail.com" target="_blank" class="btn btn-lg btn-primary w-100 fw-bold">SAVE THE DATE</a>
+                        <a href="https://calendar.google.com/event?action=TEMPLATE&tmeid=N2s3NHUxbXZqZmVjcWp0dXNrc2o3MDE1dG8gYW5ucndpbnpAbQ&tmsrc=annrwinz%40gmail.com" target="_blank" class="btn btn-lg btn-primary w-100 fw-bold">SAVE THE DATE</a>
                     </div>
                 </div>
             </div>
@@ -177,7 +177,7 @@
 {{--                <b>Resepsi terdiri dari 2 Sesi, penentuan sesi dapat dilihat pada surat undangan</b>--}}
 {{--            </div>--}}
             <div class="mt-4">
-                <a href="https://calendar.google.com/event?action=TEMPLATE&tmeid=NW1qOGVmZzFsazZocHY1cTJmcTRrZmZlNGogYW5ucndpbnpAbQ&tmsrc=annrwinz%40gmail.com" target="_blank" class="btn btn-secondary w-100 ">SAVE THE DATE</a>
+                <a href="https://calendar.google.com/event?action=TEMPLATE&tmeid=N2s3NHUxbXZqZmVjcWp0dXNrc2o3MDE1dG8gYW5ucndpbnpAbQ&tmsrc=annrwinz%40gmail.com" target="_blank" class="btn btn-secondary w-100 fw-bold">SAVE THE DATE</a>
             </div>
         </div>
 
@@ -379,7 +379,7 @@
         {{-- Wedding Gift--}}
         <div class="col-12 bg-primary text-center text-white p-4 bg-opacity-75">
             <img src="{{ url('/assets/images/divider-up.png') }}" class="filter-white w-75 mb-3 d-flex mx-auto opacity-50" alt="divider">
-            <div data-aos="flip-right" data-aos-duration="2000">
+            <div data-aos="flip-left" data-aos-duration="2000">
                 <h1 class="fw-bold font-playfair mb-4">WEDDING GIFT</h1>
                 <p>Bagi yang berkenan memberikan kado pernikahan atau tanda kasih, kami juga menyediakan amplop digital pada link dibawah ini</p>
                 <div class="row mt-2">
@@ -443,7 +443,23 @@
                         <button class="btn btn-primary mt-2">Salin Rekening</button>
                     </div>
                     <hr>
-                    <small>Klik diluar kotak untuk menutup kotak</small>
+                    <div>
+                        <img src="{{ url('/assets/images/bank/bni.png') }}" alt="bca" width="125"><br>
+                        <b>Bank BNI</b><br>
+                        <span>a.n. Erna Ayu Kurnia</span><br>
+                        <h5 class="mt-2 mb-0 fw-bold">1430223204</h5>
+                        <button class="btn btn-primary mt-2">Salin Rekening</button>
+                    </div>
+                    <hr>
+                    <div>
+                        <img src="{{ url('/assets/images/bank/shopeepay.png') }}" alt="bca" width="125"><br>
+                        <b>Shopee Pay</b><br>
+                        <span>a.n. Erna Ayu Kurnia</span><br>
+                        <h5 class="mt-2 mb-0 fw-bold">0821-2165-7720</h5>
+                        <button class="btn btn-primary mt-2">Salin Nomor</button>
+                    </div>
+                    <hr>
+                    <button class="btn btn-secondary w-100 fw-bold" data-bs-dismiss="modal" aria-label="Close">Tutup</button>
                 </div>
             </div>
         </div>
@@ -463,9 +479,9 @@
                         <i class="bi bi-geo-fill text-danger fs-2"></i>
                     </div>
                     <address>Jl. Bantar Gedang Gg. Alpuket RT/RW 05/09, Desa Mekarsari, Kec. Ngamprah, Kab. Bandung Barat, Jawa Barat 40552</address>
-                    <a href="https://goo.gl/maps/UJjjRnfQ21cxYvMh9" target="_blank" class="btn btn-primary w-100 mt-2"><i class="bi bi-geo-alt-fill"></i> Menuju Lokasi</a>
+                    <a href="https://goo.gl/maps/UJjjRnfQ21cxYvMh9" target="_blank" class="btn btn-primary w-100 mt-2">Salin Lokasi</a>
                     <hr>
-                    <small>Klik diluar kotak untuk menutup kotak</small>
+                    <button class="btn btn-secondary w-100 fw-bold" data-bs-dismiss="modal" aria-label="Close">Tutup</button>
                 </div>
             </div>
         </div>

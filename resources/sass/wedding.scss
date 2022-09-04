@@ -190,7 +190,7 @@ body {
 .bg-watercolor {
     background-color: $body-bg;
     color: $primary;
-    background-image: url(https://erwinzilla.com/v2/assets/images/bg-watercolor.jpg);
+    background-image: url('/assets/images/bg-watercolor.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -267,8 +267,8 @@ body {
 }
 
 .bg-thankyou {
-    background-image: url(https://erwinzilla.com/v2/assets/images/bg-thankyou.jpeg);
-    background-position: center -15em;
+    background-image: url('/assets/images/bg-thankyou.jpeg');
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
