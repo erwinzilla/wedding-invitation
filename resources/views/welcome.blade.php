@@ -435,28 +435,29 @@
                         <span>Silahkan pilih nomor rekening yang ada di bawah ini</span>
                     </div>
                     <hr>
+                    <textarea id="copy-text" hidden></textarea>
                     <div>
                         <img src="{{ url('/assets/images/bank/bca.png') }}" alt="bca" width="125"><br>
                         <b>Bank BCA</b><br>
                         <span>a.n. Faisal Abdul Rozzak</span><br>
-                        <h5 class="mt-2 mb-0 fw-bold">2780311188</h5>
-                        <button class="btn btn-primary mt-2">Salin Rekening</button>
+                        <h5 id="bank-bca-text" class="mt-2 mb-0 fw-bold">2780311188</h5>
+                        <button class="btn btn-primary mt-2" onclick="copyText('bank-bca-text');">Salin Rekening</button>
                     </div>
                     <hr>
                     <div>
-                        <img src="{{ url('/assets/images/bank/bni.png') }}" alt="bca" width="125"><br>
+                        <img src="{{ url('/assets/images/bank/bni.png') }}" alt="bni" width="125"><br>
                         <b>Bank BNI</b><br>
                         <span>a.n. Erna Ayu Kurnia</span><br>
-                        <h5 class="mt-2 mb-0 fw-bold">1430223204</h5>
-                        <button class="btn btn-primary mt-2">Salin Rekening</button>
+                        <h5 id="bank-bni-text" class="mt-2 mb-0 fw-bold">1430223204</h5>
+                        <button class="btn btn-primary mt-2" onclick="copyText('bank-bni-text');">Salin Rekening</button>
                     </div>
                     <hr>
                     <div>
-                        <img src="{{ url('/assets/images/bank/shopeepay.png') }}" alt="bca" width="125"><br>
+                        <img src="{{ url('/assets/images/bank/shopeepay.png') }}" alt="shopeepay" width="125"><br>
                         <b>Shopee Pay</b><br>
                         <span>a.n. Erna Ayu Kurnia</span><br>
-                        <h5 class="mt-2 mb-0 fw-bold">0821-2165-7720</h5>
-                        <button class="btn btn-primary mt-2">Salin Nomor</button>
+                        <h5 id="shopeepay-text" class="mt-2 mb-0 fw-bold">0821-2165-7720</h5>
+                        <button class="btn btn-primary mt-2" onclick="copyText('shopeepay-text');">Salin Nomor</button>
                     </div>
                     <hr>
                     <button class="btn btn-secondary w-100 fw-bold" data-bs-dismiss="modal" aria-label="Close">Tutup</button>
@@ -478,8 +479,8 @@
                     <div class="mb-3">
                         <i class="bi bi-geo-fill text-danger fs-2"></i>
                     </div>
-                    <address>Jl. Bantar Gedang Gg. Alpuket RT/RW 05/09, Desa Mekarsari, Kec. Ngamprah, Kab. Bandung Barat, Jawa Barat 40552</address>
-                    <a href="https://goo.gl/maps/UJjjRnfQ21cxYvMh9" target="_blank" class="btn btn-primary w-100 mt-2">Salin Lokasi</a>
+                    <address id="address-gift">Jl. Bantar Gedang Gg. Alpuket RT/RW 05/09, Desa Mekarsari, Kec. Ngamprah, Kab. Bandung Barat, Jawa Barat 40552</address>
+                    <button class="btn btn-primary w-100 mt-2" onclick="copyText('address-gift');">Salin Lokasi</button>
                     <hr>
                     <button class="btn btn-secondary w-100 fw-bold" data-bs-dismiss="modal" aria-label="Close">Tutup</button>
                 </div>
@@ -874,6 +875,37 @@
             http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             http.setRequestHeader("X-CSRF-TOKEN", document.head.querySelector("[name=csrf-token]").content);
             http.send(param)
+        }
+    }
+
+    function copyText(type) {
+        if (type) {
+            var copyText = document.getElementById("copy-text");
+            var teks = document.getElementById(type).innerText;
+
+            // munculkan dulu textareanya
+            copyText.hidden = false;
+            copyText.value = teks;
+
+            /* Select the text field */
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+            /* Copy the text inside the text field */
+            navigator.clipboard.writeText(copyText.value);
+
+            /* Alert the copied text */
+            //show alert
+            alert.fire({
+                title: 'Sukses',
+                text: 'Salin ke clipboard',
+                icon: 'success',
+                timer: 2000,
+                timerProgressBar: true,
+                showConfirmButton: false
+            })
+
+            copyText.hidden = true;
         }
     }
 
