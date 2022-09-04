@@ -13,14 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{name?}', 'WeddingController@invitation');
+Route::get('/', function () {
+    return redirect('/wedding');
+});
 
 // wedding example
-//Route::post('wedding/manage/wish', 'WeddingController@store_wish');
-//Route::get('wedding/manage/{pin?}', 'WeddingController@index');
-//Route::resource('wedding/manage', 'WeddingController');
-//Route::get('wedding/{name?}', 'WeddingController@invitation');
+Route::post('wedding/manage/wish', 'WeddingController@store_wish');
+Route::get('wedding/manage/{pin?}', 'WeddingController@index');
+Route::get('wedding/{name?}', 'WeddingController@invitation');
 
 Route::resources([
-    'att' => 'AttendanceController',
+    'att'               => 'AttendanceController',
+    'wedding/manage'    => 'WeddingController'
 ]);

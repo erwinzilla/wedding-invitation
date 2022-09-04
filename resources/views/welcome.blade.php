@@ -587,7 +587,7 @@
 </audio>
 
 <script>
-    const base_url = 'https://erwinzilla.com/v2/';
+    const base_url = '{{ url('') }}/';
 
     // scroll
     AOS.init();
